@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="/">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--    font-->
+  <link href="https://fonts.googleapis.com/css?family=Quicksand|Roboto:300,400,500,700" rel="stylesheet">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <!--    datatables-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <!-- bootstrap.css -->
+
+  <!--    map-->
+  <!--jqvmap.min.css-->
+  <link rel="stylesheet" type="text/css" href="assets/maps/jqvmap.css">
+  <!--app.css-->
+  <!--<link rel="stylesheet" href="asset/style/app.css">-->
+  <!--    plugin-->
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+
+
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css">  -->
+  <!--   <link rel="stylesheet" href="css/contact.css">-->
+  <link rel="stylesheet" type="text/css" href="assets/loading-bar/loading-bar.css">
+  <title>Dashboard</title>
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+
+
+<footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <!--  data_tables -->
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <!--   map-->
+  <!--  tgather-->
+  <script src="assets/tgather/tether.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/loading-bar/loading-bar.js" ></script>
+
+  <!--   pogress -->
+  <script>
+    $(document).ready(function() {
+      $('#myTable').DataTable();
+    });
+  </script>
+  <!--    circle chart-->
+  <script>
+    window.onload = function () {
+
+      var chart1 = new CanvasJS.Chart("chartContainer1", {
+        theme: "dark",
+        exportFileName: "Doughnut Chart",
+        exportEnabled: false,
+        animationEnabled: true,
+        title:{
+          text: ""
+
+        },
+        legend:{
+          cursor: "pointer",
+          itemclick: explodePie
+        },
+        data: [{
+          type: "doughnut",
+          innerRadius: 90,
+          showInLegend: true,
+          toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+          indexLabel: "{name} - #percent%",
+          dataPoints: [
+            { y: 450, name: "Ouvert" },
+            { y: 120, name: "Non ouvert" },
+            { y: 300, name: "Non délivré" },
+            { y: 800, name: "Ajout/mise à jour des données" },
+
+          ]
+        }]
+      });
+
+
+
+      var chart2 = new CanvasJS.Chart("chartContainer2", {
+        animationEnabled: true,
+        title: {
+          text: ""
+        },
+        axisX: {
+          title: "Time"
+        },
+        axisY: {
+          title: "",
+          suffix: ""
+        },
+        data: [{
+          type: "line",
+          name: "",
+          connectNullData: true,
+          //nullDataLineDashType: "solid",
+          xValueType: "dateTime",
+          xValueFormatString: "DD MM",
+          yValueFormatString: "#,##0.##\"%\"",
+          dataPoints: [
+            { x: 1501048673000, y: 35.939 },
+            { x: 1501052273000, y: 40.896 },
+            { x: 1501055873000, y: 56.625 },
+            { x: 1501059473000, y: 26.003 },
+            { x: 1501063073000, y: 20.376 },
+            { x: 1501066673000, y: 19.774 },
+            { x: 1501070273000, y: 23.508 },
+            { x: 1501073873000, y: 18.577 },
+            { x: 1501077473000, y: 15.918 },
+            { x: 1501081073000, y: null }, // Null Data
+            { x: 1501084673000, y: 10.314 },
+            { x: 1501088273000, y: 10.574 },
+            { x: 1501091873000, y: 14.422 },
+            { x: 1501095473000, y: 18.576 },
+            { x: 1501099073000, y: 22.342 },
+            { x: 1501102673000, y: 22.836 },
+            { x: 1501106273000, y: 23.220 },
+            { x: 1501109873000, y: 23.594 },
+            { x: 1501113473000, y: 24.596 },
+            { x: 1501117073000, y: 31.947 },
+            { x: 1501120673000, y: 31.142 }
+          ]
+        }]
+      });
+
+
+
+
+
+
+
+
+      chart1.render();
+      chart2.render();
+
+      function explodePie (e) {
+        if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+          e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+        } else {
+          e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+        }
+        e.chart.render();
+      }
+
+    }
+  </script>
+  <script>
+    var bar1 = new ldBar("#myItem1");
+
+    var bar2 = document.getElementById('myItem1').ldBar;
+    bar1.set(60);
+
+
+    var bar1 = new ldBar("#myItem2");
+
+    var bar2 = document.getElementById('myItem2').ldBar;
+    bar1.set(60);
+
+    var bar1 = new ldBar("#myItem3");
+
+    var bar2 = document.getElementById('myItem3').ldBar;
+    bar1.set(60);
+
+    var bar1 = new ldBar("#myItem4");
+
+    var bar2 = document.getElementById('myItem4').ldBar;
+    bar1.set(60);
+
+    var bar1 = new ldBar("#myItem5");
+
+    var bar2 = document.getElementById('myItem5').ldBar;
+    bar1.set(60);
+
+    var bar1 = new ldBar("#myItem6");
+
+    var bar2 = document.getElementById('myItem6').ldBar;
+    bar1.set(60);
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+    map = this.getElementById('map');
+    paths = map.getElementsByTagName('path');
+
+    for (var i = 0; i < paths.length; i++) {
+      paths[i].addEventListener("click", function(e){
+        console.log("Dpt: "+e.target.getAttribute('data-num'));
+      })
+    }
+
+  });
+  </script>
+
+</footer>
+</html>
