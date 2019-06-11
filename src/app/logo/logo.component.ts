@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {formatDate } from '@angular/common';
+
 
 @Component({
   selector: 'app-logo',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoComponent implements OnInit {
 
-  constructor() { }
+  today= new Date();
+  jstoday = '';
+  constructor() {
+    this.jstoday = formatDate(this.today, 'EEEE dd MMMM yyyy', 'en-US', '+0530');
+  }
 
   ngOnInit() {
+
   }
+
+
 
 }
