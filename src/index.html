@@ -42,6 +42,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <!--  data_tables -->
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
   <!--   map-->
@@ -54,6 +55,155 @@
   <script>
     $(document).ready(function() {
       $('#myTable').DataTable();
+
+      $('#liste-graphe a').click(function(){
+        
+        var id        = $(this).attr('id');
+        var idGraphe  = $(this).data('chart');
+
+        $( '#liste-graphe a' ).each(function() {
+          $( this ).removeClass( 'active' );
+        });
+
+        $('a#'+id).addClass('active');
+
+        $( '.graph-view' ).each(function() {
+          $( this ).addClass( 'hide' );
+        });
+        $('#graphContainer'+idGraphe).removeClass('hide');
+      });
+
+
+      var ctx2 = document.getElementById('chartContainer2');
+      var chart = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            datasets: [{
+                label: 'Opération',
+                data: [0, 20, 40, 50]
+            }],
+            labels: ['January', 'February', 'March', 'April']
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 50,
+                        suggestedMax: 100
+                    }
+                }]
+            }
+        }
+      });
+      var ctx3 = document.getElementById('chartContainer3');
+      var chart = new Chart(ctx3, {
+        type: 'line',
+        data: {
+            datasets: [{
+                label: 'nouveaux contacts',
+                data: [0, 20, 40, 50]
+            }],
+            labels: ['January', 'February', 'March', 'April']
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 50,
+                        suggestedMax: 100
+                    }
+                }]
+            }
+        }
+      });
+      var ctx4 = document.getElementById('chartContainer4');
+      var chart = new Chart(ctx4, {
+        type: 'line',
+        data: {
+            datasets: [{
+                label: 'contact mis à jour',
+                data: [0, 20, 40, 50]
+            }],
+            labels: ['January', 'February', 'March', 'April']
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 50,
+                        suggestedMax: 100
+                    }
+                }]
+            }
+        }
+      });
+
+      var ctx5 = document.getElementById('chartContainer5');
+      var chart = new Chart(ctx5, {
+        type: 'line',
+        data: {
+            datasets: [{
+                label: 'contact perdus',
+                data: [0, 20, 40, 50]
+            }],
+            labels: ['January', 'February', 'March', 'April']
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 50,
+                        suggestedMax: 100
+                    }
+                }]
+            }
+        }
+      });
+
+      var ctx6 = document.getElementById('chartContainer6');
+      var chart = new Chart(ctx6, {
+        type: 'line',
+        data: {
+            datasets: [{
+                label: 'nouvelles entreprises',
+                data: [0, 20, 40, 50]
+            }],
+            labels: ['January', 'February', 'March', 'April']
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 50,
+                        suggestedMax: 100
+                    }
+                }]
+            }
+        }
+      });
+
+      var ctx7 = document.getElementById('chartContainer7');
+      var chart = new Chart(ctx7, {
+        type: 'line',
+        data: {
+            datasets: [{
+                label: 'Nouveaux emails',
+                data: [0, 20, 40, 50]
+            }],
+            labels: ['January', 'February', 'March', 'April']
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        suggestedMin: 50,
+                        suggestedMax: 100
+                    }
+                }]
+            }
+        }
+      });
+
     });
   </script>
   <!--    circle chart-->
@@ -89,63 +239,7 @@
         }]
       });
 
-
-
-      var chart2 = new CanvasJS.Chart("chartContainer2", {
-        animationEnabled: true,
-        title: {
-          text: ""
-        },
-        axisX: {
-          title: "Time"
-        },
-        axisY: {
-          title: "",
-          suffix: ""
-        },
-        data: [{
-          type: "line",
-          name: "",
-          connectNullData: true,
-          //nullDataLineDashType: "solid",
-          xValueType: "dateTime",
-          xValueFormatString: "DD MM",
-          yValueFormatString: "#,##0.##\"%\"",
-          dataPoints: [
-            { x: 1501048673000, y: 35.939 },
-            { x: 1501052273000, y: 40.896 },
-            { x: 1501055873000, y: 56.625 },
-            { x: 1501059473000, y: 26.003 },
-            { x: 1501063073000, y: 20.376 },
-            { x: 1501066673000, y: 19.774 },
-            { x: 1501070273000, y: 23.508 },
-            { x: 1501073873000, y: 18.577 },
-            { x: 1501077473000, y: 15.918 },
-            { x: 1501081073000, y: null }, // Null Data
-            { x: 1501084673000, y: 10.314 },
-            { x: 1501088273000, y: 10.574 },
-            { x: 1501091873000, y: 14.422 },
-            { x: 1501095473000, y: 18.576 },
-            { x: 1501099073000, y: 22.342 },
-            { x: 1501102673000, y: 22.836 },
-            { x: 1501106273000, y: 23.220 },
-            { x: 1501109873000, y: 23.594 },
-            { x: 1501113473000, y: 24.596 },
-            { x: 1501117073000, y: 31.947 },
-            { x: 1501120673000, y: 31.142 }
-          ]
-        }]
-      });
-
-
-
-
-
-
-
-
       chart1.render();
-      chart2.render();
 
       function explodePie (e) {
         if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {

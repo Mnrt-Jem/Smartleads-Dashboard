@@ -7,20 +7,32 @@
       <div class="col-md-12">
         <div class="row chart2">
           <div class="col-md-3">
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action ">
-                Opérations
-              </a>
-              <a href="" class="list-group-item list-group-item-action active">Nouveaux contacts</a>
-              <a href="" class="list-group-item list-group-item-action "> Contacts mis à jour</a>
-              <a href="" class="list-group-item list-group-item-action"> Contacts perdus</a>
-              <a href="#" class="list-group-item list-group-item-action ">Nouvelles entreprises
-              </a>
-              <a href="#" class="list-group-item list-group-item-action "> Nouveaux emails</a>
+            <div class="list-group" id="liste-graphe">
+              <a href="#" class="list-group-item list-group-item-action" id="graph-operation" data-chart="2">Opérations</a>
+              <a href="#" class="list-group-item list-group-item-action active" id="graph-new-contact" data-chart="3">Nouveaux contacts</a>
+              <a href="#" class="list-group-item list-group-item-action" id="graph-update-contact" data-chart="4"> Contacts mis à jour</a>
+              <a href="#" class="list-group-item list-group-item-action" id="graph-lost-contact" data-chart="5"> Contacts perdus</a>
+              <a href="#" class="list-group-item list-group-item-action" id="graph-new-company"data-chart="6">Nouvelles entreprises</a>
+              <a href="#" class="list-group-item list-group-item-action" id="graph-new-email"data-chart="7"> Nouveaux emails</a>
             </div>
           </div>
-          <div class="col-md-9">
-            <div id="chartContainer2" style="height: 370px; width: 100%;"></div>
+          <div id="graphContainer2" class="col-md-9 graph-view hide">
+            <canvas id="chartContainer2" class="chart-graph"></canvas>
+          </div>
+          <div id="graphContainer3" class="col-md-9 graph-view">
+            <canvas id="chartContainer3" class="chart-graph"></canvas>
+          </div>
+          <div id="graphContainer4" class="col-md-9 graph-view hide">
+            <canvas id="chartContainer4" class="chart-graph"></canvas>
+          </div>
+          <div id="graphContainer5" class="col-md-9 graph-view hide">
+            <canvas id="chartContainer5" class="chart-graph"></canvas>
+          </div>
+          <div id="graphContainer6" class="col-md-9 graph-view hide">
+            <canvas id="chartContainer6" class="chart-graph"></canvas>
+          </div>
+          <div id="graphContainer7" class="col-md-9 graph-view hide">
+            <canvas id="chartContainer7" class="chart-graph"></canvas>
           </div>
         </div>
       </div>
