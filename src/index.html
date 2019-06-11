@@ -57,7 +57,7 @@
       $('#myTable').DataTable();
 
       $('#liste-graphe a').click(function(){
-        
+
         var id        = $(this).attr('id');
         var idGraphe  = $(this).data('chart');
 
@@ -73,6 +73,17 @@
         $('#graphContainer'+idGraphe).removeClass('hide');
       });
 
+      var ctx1 = document.getElementById('chartContainer1');
+  		var myDoughnutChart = new Chart(ctx1, {
+  			type: 'doughnut',
+  			data: {
+  				datasets: [{
+  					label: 'Opération',
+  					data: [0, 20, 40, 50]
+  				}],
+  				labels: ['January', 'February', 'March', 'April']
+  			}
+  		});
 
       var ctx2 = document.getElementById('chartContainer2');
       var chart = new Chart(ctx2, {
@@ -209,37 +220,6 @@
   <!--    circle chart-->
   <script>
     window.onload = function () {
-
-      var chart1 = new CanvasJS.Chart("chartContainer1", {
-        theme: "dark",
-        exportFileName: "Doughnut Chart",
-        exportEnabled: false,
-        animationEnabled: true,
-        title:{
-          text: ""
-
-        },
-        legend:{
-          cursor: "pointer",
-          itemclick: explodePie
-        },
-        data: [{
-          type: "doughnut",
-          innerRadius: 90,
-          showInLegend: true,
-          toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
-          indexLabel: "{name} - #percent%",
-          dataPoints: [
-            { y: 450, name: "Ouvert" },
-            { y: 120, name: "Non ouvert" },
-            { y: 300, name: "Non délivré" },
-            { y: 800, name: "Ajout/mise à jour des données" },
-
-          ]
-        }]
-      });
-
-      chart1.render();
 
       function explodePie (e) {
         if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
