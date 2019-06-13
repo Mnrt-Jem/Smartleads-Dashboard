@@ -9,24 +9,26 @@ import { ScoreComponent } from './score/score.component';
 import { NumbersComponent } from './numbers/numbers.component';
 import { DatatableComponent } from './datatable/datatable.component';
 import { IndiceComponent } from './indice/indice.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LogoComponent,
-    MapComponent,
-    ScoreComponent,
-    NumbersComponent,
-    DatatableComponent,
-    IndiceComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LogoComponent,
+        MapComponent,
+        ScoreComponent,
+        NumbersComponent,
+        DatatableComponent,
+        IndiceComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
