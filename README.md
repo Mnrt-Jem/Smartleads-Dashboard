@@ -39,7 +39,7 @@ Lancer le serveur :
 ng serve
 ```
 
-**Se connecter avec son compte youtube (en haut a droite pour avoir accès à l'ensemble des fonctionnalités)**
+****
 
 ## Page d'accueil
 - Affiche les statistiques des données de smartleads (nouveaux contact/email, nouvelles entreprise/opération, ainsi que le total de chacune de ses données.
@@ -56,5 +56,50 @@ ng serve
 
 
 # ENGLISH
+
+
+## What you need
+- node.js
+- Some data in your Smartleads CRM application
+
+## Installation
+
+- Download the project from gitHub or clone it: 
+
+```bash
+git clone git@github.com:Mnrt-Jem/Smartleads-Dashboard.git
+```
+- Run your command promt
+- o to your project folder :
+
+```bash
+cd FOLDER_URL
+```
+- Install the project with the following command:
+
+```bash
+npm install
+```
+
+## Usage
+run the server :
+```python
+ng serve
+```
+
+**Connect with your youtube account (in the top right corner to acces all of the features)**
+
+## Home page
+- display statistics from smartleads (new contacts, mails, entreprise and operations. Also displays the total number of the formentioned entities).
+
+## Map
+- Displays the score for each state
+
+## Opérations
+- Diplays the stats of the commercial operations mails(opened, discarded...)
+
+## Performance indicators traking
+- Displays a chart containing statistics from the opened tab 
+
 
 
