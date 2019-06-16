@@ -11,8 +11,9 @@
       </tr>
       </thead>
       <tbody>
-      <tr role="row" class="odd">
-        <td> <img class="img-fluid tableinsideimg" src="../../assets/img/bohdan.png" alt="">jesei</td>
+
+      <tr *ngFor="let user of Users; let i = index" role="row" class="odd">
+        <td><img class="img-fluid tableinsideimg" src="../../assets/img/{{user.img_url}}" alt="">{{user.nom}}</td>
         <td>
           <div class="commerciale_score_td">
             60

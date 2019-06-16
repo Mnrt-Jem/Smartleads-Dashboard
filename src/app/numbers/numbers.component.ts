@@ -9,6 +9,7 @@ import {HttpClient} from '@angular/common/http';
 export class NumbersComponent implements OnInit {
 
     NbNewCont: Object;
+    PourcentNewCont: Object;
     NbContactActif: Object;
     NbEntreprises: Object;
     NbEntrepriseAct: Object;
@@ -35,6 +36,7 @@ export class NumbersComponent implements OnInit {
         this.http.get('http://localhost:8000/api/contact/newContacts/month')
             .subscribe(data => {
                     this.NbNewCont = data.result;
+                    this.PourcentNewCont = data.pourcent;
                     this.isloading = true;
                     console.log(this.NbNewCont);
                 },
@@ -107,6 +109,8 @@ export class NumbersComponent implements OnInit {
                     console.log(error);
                 }
             );
+
+
     }
 
 }
