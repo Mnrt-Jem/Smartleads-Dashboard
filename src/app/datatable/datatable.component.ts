@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import Chart from 'chart.js';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-datatable',
@@ -9,9 +10,44 @@ import Chart from 'chart.js';
 })
 export class DatatableComponent implements OnInit {
 
-  constructor() { }
+    Operations: Object;
+    data: Object;
+    isloading = false;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+      this.http.get('http://localhost:8000/api/operation/operationAll')
+          .subscribe(data => {
+                  this.Operations = data.operations;
+                  this.isloading = true;
+                  console.log(this.Operations);
+
+                  var ctx1 = document.getElementById('chartContainer1');
+                  var myDoughnutChart = new Chart(ctx1, {
+                      type: 'doughnut',
+                      data: {
+                          datasets: [{
+                              label: 'Opération',
+                              data: [this.Operations, this.Operations, 1],
+                              backgroundColor: [
+                                  '#00B900',
+                                  '#ffc107',
+                                  '#dc3545'
+                              ]
+
+
+
+                          }],
+                          labels: ['Réalisées', 'Actives', 'Non délivré']
+                      }
+                  });
+              },
+              error => {
+                  console.log(error);
+              }
+          );
+
     $(document).ready(function() {
       $('#liste-graphe a').click(function(){
         var id        = $(this).attr('id');
@@ -28,17 +64,10 @@ export class DatatableComponent implements OnInit {
         });
         $('#graphContainer'+idGraphe).removeClass('hide');
       });
-      var ctx1 = document.getElementById('chartContainer1');
-  		var myDoughnutChart = new Chart(ctx1, {
-  			type: 'doughnut',
-  			data: {
-  				datasets: [{
-  					label: 'Opération',
-  					data: [0, 20, 40, 50]
-  				}],
-  				labels: ['January', 'February', 'March', 'April']
-  			}
-  		});
+
+
+
+
 
       var ctx2 = document.getElementById('chartContainer2');
       var chart = new Chart(ctx2, {
@@ -66,7 +95,7 @@ export class DatatableComponent implements OnInit {
         type: 'line',
         data: {
             datasets: [{
-                label: 'nouveaux contacts',
+                label: 'Contacts gagnés',
                 data: [0, 20, 40, 50]
             }],
             labels: ['January', 'February', 'March', 'April']
@@ -87,7 +116,7 @@ export class DatatableComponent implements OnInit {
         type: 'line',
         data: {
             datasets: [{
-                label: 'contact mis à jour',
+                label: 'Contact mis à jour',
                 data: [0, 20, 40, 50]
             }],
             labels: ['January', 'February', 'March', 'April']
@@ -109,7 +138,7 @@ export class DatatableComponent implements OnInit {
         type: 'line',
         data: {
             datasets: [{
-                label: 'contact perdus',
+                label: 'Contact perdus',
                 data: [0, 20, 40, 50]
             }],
             labels: ['January', 'February', 'March', 'April']
@@ -131,7 +160,7 @@ export class DatatableComponent implements OnInit {
         type: 'line',
         data: {
             datasets: [{
-                label: 'nouvelles entreprises',
+                label: 'Nouvelles entreprises',
                 data: [0, 20, 40, 50]
             }],
             labels: ['January', 'February', 'March', 'April']
