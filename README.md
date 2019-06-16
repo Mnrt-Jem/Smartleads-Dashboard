@@ -1,27 +1,56 @@
-# Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+# DASHBOARD SMARTLEADS
+[![npm version](https://img.shields.io/badge/node.js-10.15.0-green.svg)](https://img.shields.io/badge/node.js-10.15.0-green.svg) [![npm version](https://img.shields.io/badge/npm%20package-7.0.6-green.svg)](https://img.shields.io/badge/npm%20package-7.0.6-green.svg) 
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+# FRANCAIS
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+DASHBOARD SMARTLEADS est une application web développée avec l'API de que nous avons développé pour notre projet SmartLeads et Angular 7
 
-## Running unit tests
+## Pré-Requis
+- node.js
+- Des données dans base de SmartLeads
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Installation
 
-## Running end-to-end tests
+- Télécharger le projet sur github ou clonez le : 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```bash
+git clone git@github.com:Mnrt-Jem/Smartleads-Dashboard.git
+```
+- Lancer l'invité de commande
+- Se placer dans le dossier du projet avec la commande :
 
-## Further help
+```bash
+cd CHEMIN_DU_PROJET
+```
+- Installer le projet avec la commande :
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```bash
+npm install
+```
+
+## Usage
+Lancer le serveur :
+```python
+ng serve
+```
+
+**Se connecter avec son compte youtube (en haut a droite pour avoir accès à l'ensemble des fonctionnalités)**
+
+## Page d'accueil
+- Affiche les statistiques des données de smartleads (nouveaux contact/email, nouvelles entreprise/opération, ainsi que le total de chacune de ses données.
+
+## Carte
+- Permet d'afficher les scores par département
+
+## Performance des opérations
+- Permet d'afficher les statistiques des mails des opérations envoyé (ouvert, non ouvert...)
+
+
+# ENGLISH
+
+
