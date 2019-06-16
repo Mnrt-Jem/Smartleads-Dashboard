@@ -12,11 +12,14 @@ export class NumbersComponent implements OnInit {
     PourcentNewCont: Object;
     NbContactActif: Object;
     NbEntreprises: Object;
+    PourcentEntreprise: Object;
     NbEntrepriseAct: Object;
     NewEmail: Object;
     Emails: Object;
+    PourcentEmails: Object;
     Operations: Object;
     NewOp: Object;
+    PourcentOpe: Object;
     data: Object;
     isloading = false;
     constructor(private http: HttpClient) { }
@@ -59,6 +62,7 @@ export class NumbersComponent implements OnInit {
         this.http.get('http://localhost:8000/api/company/newCompany/month')
             .subscribe(data => {
                     this.NbEntrepriseAct = data.newCompany;
+                    this.PourcentEntreprise = data.pourcent;
                     this.isloading = true;
                     console.log(this.NbEntrepriseAct);
                 },
@@ -70,6 +74,7 @@ export class NumbersComponent implements OnInit {
         this.http.get('http://localhost:8000/api/operation/emailsAll')
             .subscribe(data => {
                     this.NewEmail = data.newEmails;
+                    this.PourcentEmails = data.pourcent;
                     this.isloading = true;
                     console.log(this.NewEmail);
                 },
@@ -102,6 +107,7 @@ export class NumbersComponent implements OnInit {
         this.http.get('http://localhost:8000/api/operation/Operation/month')
             .subscribe(data => {
                     this.NewOp = data.newOp;
+                    this.PourcentOpe = data.pourcent;
                     this.isloading = true;
                     console.log(this.NewOp);
                 },
