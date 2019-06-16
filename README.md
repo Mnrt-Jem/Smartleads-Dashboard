@@ -50,6 +50,10 @@ ng serve
 ## Performance des opérations
 - Permet d'afficher les statistiques des mails des opérations envoyé (ouvert, non ouvert...)
 
+## Suivi des indicateurs de performance
+- Permet d'afficher un graphique contenant des statistiques choisi en fonction de l'onglet
+
+
 
 # ENGLISH
 
