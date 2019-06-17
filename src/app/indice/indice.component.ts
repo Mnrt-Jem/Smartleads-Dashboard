@@ -23,7 +23,7 @@ export class IndiceComponent implements OnInit {
         .subscribe(data => {
               this.month3 = data;
               this.isloading = true;
-              console.log(this.month3);
+
             },
             error => {
               console.log(error);
@@ -33,7 +33,7 @@ export class IndiceComponent implements OnInit {
         .subscribe(data => {
               this.month6 = data;
               this.isloading = true;
-              console.log(this.month6);
+
             },
             error => {
               console.log(error);
@@ -43,7 +43,7 @@ export class IndiceComponent implements OnInit {
         .subscribe(data => {
               this.year1 = data;
               this.isloading = true;
-              console.log(this.year1);
+
             },
             error => {
               console.log(error);
@@ -53,7 +53,7 @@ export class IndiceComponent implements OnInit {
         .subscribe(data => {
               this.year2 = data;
               this.isloading = true;
-              console.log(this.year2);
+
             },
             error => {
               console.log(error);
@@ -63,7 +63,7 @@ export class IndiceComponent implements OnInit {
         .subscribe(data => {
               this.year3 = data;
               this.isloading = true;
-              console.log(this.year3);
+
             },
             error => {
               console.log(error);

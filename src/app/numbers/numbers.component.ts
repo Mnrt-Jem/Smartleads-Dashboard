@@ -29,7 +29,7 @@ export class NumbersComponent implements OnInit {
             .subscribe((data: any) => {
                     this.NbContactActif = data.contactActif;
                     this.isloading = true;
-                    console.log(this.NbContactActif);
+
                 },
                 error => {
                     console.log(error);
@@ -41,7 +41,7 @@ export class NumbersComponent implements OnInit {
                     this.NbNewCont = data.result;
                     this.PourcentNewCont = data.pourcent;
                     this.isloading = true;
-                    console.log(this.NbNewCont);
+
                 },
                 error => {
                     console.log(error);
@@ -52,7 +52,7 @@ export class NumbersComponent implements OnInit {
             .subscribe((data: any) => {
                     this.NbEntreprises = data.companyActif;
                     this.isloading = true;
-                    console.log(this.NbEntreprises);
+
                 },
                 error => {
                     console.log(error);
@@ -64,7 +64,7 @@ export class NumbersComponent implements OnInit {
                     this.NbEntrepriseAct = data.newCompany;
                     this.PourcentEntreprise = data.pourcent;
                     this.isloading = true;
-                    console.log(this.NbEntrepriseAct);
+
                 },
                 error => {
                     console.log(error);
@@ -76,7 +76,7 @@ export class NumbersComponent implements OnInit {
                     this.NewEmail = data.newEmails;
                     this.PourcentEmails = data.pourcent;
                     this.isloading = true;
-                    console.log(this.NewEmail);
+
                 },
                 error => {
                     console.log(error);
@@ -87,7 +87,7 @@ export class NumbersComponent implements OnInit {
             .subscribe((data: any) => {
                     this.Emails = data.emails;
                     this.isloading = true;
-                    console.log(this.Emails);
+
                 },
                 error => {
                     console.log(error);
@@ -97,7 +97,7 @@ export class NumbersComponent implements OnInit {
             .subscribe((data: any) => {
                     this.Operations = data.operations;
                     this.isloading = true;
-                    console.log(this.Operations);
+
                 },
                 error => {
                     console.log(error);
@@ -109,7 +109,7 @@ export class NumbersComponent implements OnInit {
                     this.NewOp = data.newOp;
                     this.PourcentOpe = data.pourcent;
                     this.isloading = true;
-                    console.log(this.NewOp);
+
                 },
                 error => {
                     console.log(error);

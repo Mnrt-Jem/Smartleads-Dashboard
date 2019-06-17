@@ -11,7 +11,11 @@ import {HttpClient} from '@angular/common/http';
 export class DatatableComponent implements OnInit {
 
     Operations: Object;
+    chartOpe: any;
     chartmonth: any;
+    chartMaj: any;
+    chartComp: any;
+    chartMail: any;
     data: Object;
     isloading = false;
 
@@ -23,7 +27,7 @@ export class DatatableComponent implements OnInit {
           .subscribe((data: any) => {
                   this.Operations = data.operations;
                   this.isloading = true;
-                  console.log(this.Operations);
+
 
                   var ctx1 = document.getElementById('chartContainer1');
                   var myDoughnutChart = new Chart(ctx1, {
@@ -52,7 +56,7 @@ export class DatatableComponent implements OnInit {
           .subscribe((data: any) => {
                   this.chartmonth = data;
                   this.isloading = true;
-                  console.log(this.chartmonth);
+
 
                   var ctx3 = document.getElementById('chartContainer3');
                   var chart = new Chart(ctx3, {
@@ -81,6 +85,143 @@ export class DatatableComponent implements OnInit {
               }
           );
 
+      this.http.get('http://localhost:8000/api/operation/chartOpe')
+          .subscribe((data: any) => {
+                  this.chartOpe = data;
+                  this.isloading = true;
+
+
+                  var ctx2 = document.getElementById('chartContainer2');
+                  var chart = new Chart(ctx2, {
+                      type: 'line',
+                      data: {
+                          datasets: [{
+                              label: 'Opération',
+                              data: [this.chartOpe.month4, this.chartOpe.month3, this.chartOpe.month2, this.chartOpe.month1]
+                          }],
+                          labels: ['Mars', 'Avril', 'Mai', 'Juin']
+                      },
+                      options: {
+                          scales: {
+                              yAxes: [{
+                                  ticks: {
+                                      suggestedMin: 50,
+                                      suggestedMax: 100
+                                  }
+                              }]
+                          }
+                      }
+                  });
+              },
+              error => {
+                  console.log(error);
+              }
+          );
+
+      this.http.get('http://localhost:8000/api/contact/chartMaj')
+          .subscribe((data: any) => {
+                  this.chartMaj = data;
+                  this.isloading = true;
+
+
+                  var ctx4 = document.getElementById('chartContainer4');
+                  var chart = new Chart(ctx4, {
+                      type: 'line',
+                      data: {
+                          datasets: [{
+                              label: 'Contact mis à jour',
+                              data: [this.chartMaj.month4, this.chartMaj.month3, this.chartMaj.month2, this.chartMaj.month1]
+                          }],
+                          labels: ['Mars', 'Avril', 'Mai', 'Juin']
+                      },
+                      options: {
+                          scales: {
+                              yAxes: [{
+                                  ticks: {
+                                      suggestedMin: 50,
+                                      suggestedMax: 100
+                                  }
+                              }]
+                          }
+                      }
+                  });
+              },
+              error => {
+                  console.log(error);
+              }
+          );
+
+
+      this.http.get('http://localhost:8000/api/company/chartComp')
+          .subscribe((data: any) => {
+                  this.chartComp = data;
+                  this.isloading = true;
+
+
+                  var ctx6 = document.getElementById('chartContainer6');
+                  var chart = new Chart(ctx6, {
+                      type: 'line',
+                      data: {
+                          datasets: [{
+                              label: 'Nouvelles entreprises',
+                              data: [this.chartComp.month4, this.chartComp.month3, this.chartComp.month2, this.chartComp.month1]
+                          }],
+                          labels: ['Mars', 'Avril', 'Mai', 'Juin']
+                      },
+                      options: {
+                          scales: {
+                              yAxes: [{
+                                  ticks: {
+                                      suggestedMin: 50,
+                                      suggestedMax: 100
+                                  }
+                              }]
+                          }
+                      }
+                  });
+              },
+              error => {
+                  console.log(error);
+              }
+          );
+
+      this.http.get('http://localhost:8000/api/operation/chartMail')
+          .subscribe((data: any) => {
+                  this.chartMail = data;
+                  this.isloading = true;
+
+
+                  var ctx7 = document.getElementById('chartContainer7');
+                  var chart = new Chart(ctx7, {
+                      type: 'line',
+                      data: {
+                          datasets: [{
+                              label: 'Nouveaux emails',
+                              data: [this.chartMail.month4, this.chartMail.month3, this.chartMail.month2, this.chartMail.month1]
+                          }],
+                          labels: ['Mars', 'Avril', 'Mai', 'Juin']
+                      },
+                      options: {
+                          scales: {
+                              yAxes: [{
+                                  ticks: {
+                                      suggestedMin: 50,
+                                      suggestedMax: 100
+                                  }
+                              }]
+                          }
+                      }
+                  });
+              },
+              error => {
+                  console.log(error);
+              }
+          );
+
+
+
+
+
     $(document).ready(function() {
       $('#liste-graphe a').click(function(){
         var id        = $(this).attr('id');
@@ -102,69 +243,6 @@ export class DatatableComponent implements OnInit {
 
 
 
-      var ctx2 = document.getElementById('chartContainer2');
-      var chart = new Chart(ctx2, {
-        type: 'line',
-        data: {
-            datasets: [{
-                label: 'Opération',
-                data: [0, 20, 40, 50]
-            }],
-            labels: ['January', 'February', 'March', 'April']
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        suggestedMin: 50,
-                        suggestedMax: 100
-                    }
-                }]
-            }
-        }
-      });
-      var ctx3 = document.getElementById('chartContainer3');
-      var chart = new Chart(ctx3, {
-        type: 'line',
-        data: {
-            datasets: [{
-                label: 'Contacts gagnés',
-                data: [0, 20, 40, 50]
-            }],
-            labels: ['Mars', 'Avril', 'Mai', 'Juin']
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        suggestedMin: 50,
-                        suggestedMax: 100
-                    }
-                }]
-            }
-        }
-      });
-      var ctx4 = document.getElementById('chartContainer4');
-      var chart = new Chart(ctx4, {
-        type: 'line',
-        data: {
-            datasets: [{
-                label: 'Contact mis à jour',
-                data: [0, 20, 40, 50]
-            }],
-            labels: ['Mars', 'Avril', 'Mai', 'Juin']
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        suggestedMin: 50,
-                        suggestedMax: 100
-                    }
-                }]
-            }
-        }
-      });
 
       var ctx5 = document.getElementById('chartContainer5');
       var chart = new Chart(ctx5, {
@@ -172,7 +250,7 @@ export class DatatableComponent implements OnInit {
         data: {
             datasets: [{
                 label: 'Contact perdus',
-                data: [0, 20, 40, 50]
+                data: [0, 1, 0, 0]
             }],
             labels: ['Mars', 'Avril', 'Mai', 'Juin']
         },
@@ -188,49 +266,9 @@ export class DatatableComponent implements OnInit {
         }
       });
 
-      var ctx6 = document.getElementById('chartContainer6');
-      var chart = new Chart(ctx6, {
-        type: 'line',
-        data: {
-            datasets: [{
-                label: 'Nouvelles entreprises',
-                data: [0, 20, 40, 50]
-            }],
-            labels: ['Mars', 'Avril', 'Mai', 'Juin']
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        suggestedMin: 50,
-                        suggestedMax: 100
-                    }
-                }]
-            }
-        }
-      });
 
-      var ctx7 = document.getElementById('chartContainer7');
-      var chart = new Chart(ctx7, {
-        type: 'line',
-        data: {
-            datasets: [{
-                label: 'Nouveaux emails',
-                data: [0, 20, 40, 50]
-            }],
-            labels: ['Mars', 'Avril', 'Mai', 'Juin']
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        suggestedMin: 50,
-                        suggestedMax: 100
-                    }
-                }]
-            }
-        }
-      });
+
+
     });
   }
 

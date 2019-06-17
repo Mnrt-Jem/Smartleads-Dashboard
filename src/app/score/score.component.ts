@@ -19,7 +19,7 @@ export class ScoreComponent implements OnInit {
         .subscribe((data: any) => {
               this.Users = data.users;
               this.isloading = true;
-              console.log(this.Users);
+
             },
             error => {
               console.log(error);
