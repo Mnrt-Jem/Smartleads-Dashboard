@@ -18,7 +18,7 @@ export class MapComponent implements OnInit {
   ngOnInit() {
 
     this.http.get('http://localhost:8000/api/user/region')
-        .subscribe(data => {
+        .subscribe((data: any) => {
               this.region = data.region;
               this.isloading = true;
 

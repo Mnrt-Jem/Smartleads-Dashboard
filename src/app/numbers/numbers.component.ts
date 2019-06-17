@@ -26,7 +26,7 @@ export class NumbersComponent implements OnInit {
 
     ngOnInit() {
         this.http.get('http://localhost:8000/api/contact/contactActif')
-            .subscribe(data => {
+            .subscribe((data: any) => {
                     this.NbContactActif = data.contactActif;
                     this.isloading = true;
                     console.log(this.NbContactActif);
@@ -37,7 +37,7 @@ export class NumbersComponent implements OnInit {
             );
 
         this.http.get('http://localhost:8000/api/contact/newContacts/month')
-            .subscribe(data => {
+            .subscribe((data: any) => {
                     this.NbNewCont = data.result;
                     this.PourcentNewCont = data.pourcent;
                     this.isloading = true;
@@ -49,7 +49,7 @@ export class NumbersComponent implements OnInit {
             );
 
         this.http.get('http://localhost:8000/api/company/companyActif')
-            .subscribe(data => {
+            .subscribe((data: any) => {
                     this.NbEntreprises = data.companyActif;
                     this.isloading = true;
                     console.log(this.NbEntreprises);
@@ -60,7 +60,7 @@ export class NumbersComponent implements OnInit {
             );
 
         this.http.get('http://localhost:8000/api/company/newCompany/month')
-            .subscribe(data => {
+            .subscribe((data: any) => {
                     this.NbEntrepriseAct = data.newCompany;
                     this.PourcentEntreprise = data.pourcent;
                     this.isloading = true;
@@ -72,7 +72,7 @@ export class NumbersComponent implements OnInit {
             );
 
         this.http.get('http://localhost:8000/api/operation/emailsAll')
-            .subscribe(data => {
+            .subscribe((data: any) => {
                     this.NewEmail = data.newEmails;
                     this.PourcentEmails = data.pourcent;
                     this.isloading = true;
@@ -84,7 +84,7 @@ export class NumbersComponent implements OnInit {
             );
 
         this.http.get('http://localhost:8000/api/operation/emails')
-            .subscribe(data => {
+            .subscribe((data: any) => {
                     this.Emails = data.emails;
                     this.isloading = true;
                     console.log(this.Emails);
@@ -94,7 +94,7 @@ export class NumbersComponent implements OnInit {
                 }
             );
         this.http.get('http://localhost:8000/api/operation/operationAll')
-            .subscribe(data => {
+            .subscribe((data: any) => {
                     this.Operations = data.operations;
                     this.isloading = true;
                     console.log(this.Operations);
@@ -105,7 +105,7 @@ export class NumbersComponent implements OnInit {
             );
 
         this.http.get('http://localhost:8000/api/operation/Operation/month')
-            .subscribe(data => {
+            .subscribe((data: any) => {
                     this.NewOp = data.newOp;
                     this.PourcentOpe = data.pourcent;
                     this.isloading = true;

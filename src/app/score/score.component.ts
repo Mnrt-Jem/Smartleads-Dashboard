@@ -16,7 +16,7 @@ export class ScoreComponent implements OnInit {
 
   ngOnInit() {
     this.http.get('http://localhost:8000/api/user/usersAll')
-        .subscribe(data => {
+        .subscribe((data: any) => {
               this.Users = data.users;
               this.isloading = true;
               console.log(this.Users);
